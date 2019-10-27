@@ -6,7 +6,20 @@ public class CameraController : MonoBehaviour
 {
     private GameManager gameManager;
     [SerializeField]
-    private Transform target;
+    private Transform _target;
+    private Transform target
+    {
+        get
+        {
+            if (_target == null)
+                _target = GameManager.Instance.player.transform;
+            return _target;
+        }
+        set
+        {
+            _target = value;
+        }
+    }
 
     // Use this for initialization
     void Start()
@@ -17,7 +30,6 @@ public class CameraController : MonoBehaviour
 
     private void Init()
     {
-        target = gameManager.player.transform;
         var p = transform.position;
         p.x = target.position.x;
         p.z = target.position.z;

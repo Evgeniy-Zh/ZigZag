@@ -42,11 +42,7 @@ public class PlayerController : MonoBehaviour
         {
             Fall();
         }
-        else
-        {
-            //print(info.transform.tag);
-
-        }
+       
     }
 
     public void Turn()
